@@ -1,6 +1,6 @@
 ### .gitignore bacodev ###
 ### .gitignore Laravel + PHPStorm ###
-.idea
+/.idea
 .vscode
 .vagrant
 .phpstorm.meta.php
