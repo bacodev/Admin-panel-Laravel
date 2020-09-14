@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="app">
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -71,16 +71,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon  fas fa-tachometer-alt"></i>
+                        <router-link to="/dashboard" class="nav-link" active-class="active">
+                            <i class="text-blue nav-icon  fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
                             </p>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-cog"></i>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-cog green"></i>
                             <p>
                                 Management
                                 <i class="right fas fa-angle-left"></i>
@@ -88,32 +88,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Active Page</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inactive Page</p>
-                                </a>
+                                <router-link to="users" class="nav-link">
+                                    <i class="fa fa-users nav-icon"></i>
+                                    <p>Users</p>
+                                </router-link>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon  fas fa-user-alt"></i>
+                        <router-link to="developer" class="nav-link" active-class="active">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Developer
+                            </p>
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="profile" class="nav-link" active-class="active">
+                            <i class="nav-icon  fas fa-user-alt orange"></i>
                             <p>
                                 Profile
                             </p>
-                        </a>
+                        </router-link>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
-                            <i class="nav-icon  fas fa-power-off"></i>
+                            <i class="text-red nav-icon  fas fa-power-off red"></i>
                             <p>
                                 {{ __('Logout') }}
                             </p>
@@ -136,9 +139,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-
-                </div>
+                <router-view>
+                    <vue-progress-bar></vue-progress-bar>
+                </router-view>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
